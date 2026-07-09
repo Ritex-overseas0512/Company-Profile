@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritex Overseas</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.98), rgba(244, 245, 247, 0.96)),
+        linear-gradient(135deg, #f7f8fa, #eceef2);
+      color: #1d1d1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 42px 18px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 760px;
+      text-align: center;
+    }
+
+    .top-card,
+    .main-card {
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 34px;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .top-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 34px;
+      margin-bottom: 28px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .logo-box {
+      width: 104px;
+      height: 104px;
+      border-radius: 28px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-box img {
+      width: 86%;
+      height: 86%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 760;
+      letter-spacing: -0.9px;
+      text-align: left;
+      line-height: 1.08;
+      color: #1d1d1f;
+    }
+
+    .main-card {
+      padding: 34px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      min-height: 118px;
+      background: rgba(250, 250, 252, 0.94);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 26px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-decoration: none;
+      color: #1d1d1f;
+      text-align: left;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.045);
+      transition: all 0.28s ease;
+      overflow: hidden;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      background: #ffffff;
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.09);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+    }
+
+    .icon svg {
+      width: 31px;
+      height: 31px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .website-icon {
+      background: linear-gradient(135deg, #007aff, #005fe8);
+    }
+
+    .whatsapp-icon {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .pdf-icon {
+      background: linear-gradient(135deg, #ff3b30, #d70015);
+    }
+
+    .card-text h3 {
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+      margin-bottom: 5px;
+      color: #1d1d1f;
+    }
+
+    .card-text p {
+      font-size: 17px;
+      color: #6e6e73;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .profile-card {
+      grid-column: span 2;
+    }
+
+    .footer {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      transition: all 0.28s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-4px);
+      background: #ffffff;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-link svg {
+      width: 25px;
+      height: 25px;
+      fill: #1d1d1f;
+    }
+
+    .copyright {
+      margin-top: 18px;
+      color: #7a7a80;
+      font-size: 16px;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 28px 14px;
+      }
+
+      .top-card {
+        padding: 28px 22px;
+      }
+
+      .brand-left {
+        flex-direction: column;
+      }
+
+      .brand-name {
+        text-align: center;
+      }
+
+      .main-card {
+        padding: 22px;
+        border-radius: 30px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        grid-column: span 1;
+      }
+
+      .info-card {
+        min-height: 110px;
+        padding: 20px;
+      }
+
+      .card-text h3 {
+        font-size: 21px;
+      }
+
+      .card-text p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrapper">
+
+    <section class="top-card">
+      <div class="brand-left">
+        <div class="logo-box">
+          <img src="assets/ritexlogo.svg" alt="Ritex Overseas Pvt Ltd Logo" />
+        </div>
+        <h1 class="brand-name">Ritex Overseas Pvt Ltd.</h1>
+      </div>
+    </section>
+
+    <section class="main-card">
+      <div class="cards-grid">
+
+        <a href="https://www.ritexoverseas.com/" target="_blank" class="info-card" rel="noopener noreferrer">
+          <div class="icon website-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M2 12h20"></path>
+              <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+              <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+            </svg>
+          </div>
+          <div class="card-text">
+            <h3>Website</h3>
+            <p>ritexoverseas.com</p>
+          </div>
+        </a>
+
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="info-card" rel="noopener noreferrer">
+          <div class="icon whatsapp-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.3-4A8.4 8.4 0 1 1 20.5 11.8Z"></path>
+              <path d="M9.3 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4l.8 1.9c.1.3.1.5-.1.7l-.4.5c-.2.2-.2.4-.1.6.4.8 1 1.5 1.7 2 .5.4 1.1.7 1.3.7s.4-.1.6-.3l.7-.8c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.6 0 .5-.4 1.5-.9 1.9-.5.4-1.5.5-2.5.2-2.1-.6-4-2-5.2-3.7-1.1-1.4-1.7-2.8-1.7-3.8 0-.8.3-1.4.5-1.7Z"></path>
+            </svg>
+          </div>
+          <div class="card-text">
+            <h3>WhatsApp</h3>
+            <p>+91 XXXXXXXXXX</p>
+          </div>
+        </a>
+
+        <a href="assets/Ritex_Overseas_Company_Profile.pdf" target="_blank" class="info-card profile-card" rel="noopener noreferrer">
+          <div class="icon pdf-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"></path>
+              <path d="M14 2v5h5"></path>
+              <path d="M8.5 15h7"></path>
+              <path d="M8.5 18h4.5"></path>
+              <path d="M8.5 12h7"></path>
+            </svg>
+          </div>
+          <div class="card-text">
+            <h3>Company Profile</h3>
+            <p>View / Download PDF</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="https://www.linkedin.com/company/ritex-overseas-pvt-ltd---india/" target="_blank" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V23h-4V8Zm7.5 0h3.8v2.05h.05c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.79 2.66 4.79 6.12V23h-4v-7.88c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V23h-4V8Z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/ritexofficial" target="_blank" class="social-link" aria-label="Instagram" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm4.2 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5-2.45a1.15 1.15 0 1 1-1.15 1.15A1.15 1.15 0 0 1 17 6.75Z"/>
+        </svg>
+      </a>
+    </footer>
+
+    <p class="copyright">© 2026 Ritex Overseas Pvt Ltd · All rights reserved</p>
+
+  </main>
+</body>
+</html>
