@@ -1,0 +1,20 @@
+name: Ritex temporary asset transfer
+on:
+  push:
+    paths:
+      - ".github/workflows/ritex-temp-asset-transfer.yml"
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source asset archive
+        run: |
+          curl -fL 'https://id-preview--b7baffe2-5d3f-4401-9300-02ee41744201.lovable.app/__l5e/assets-v1/1cd12a3d-3b22-4065-9564-b1710e8aeb65/ritex-temp-image-assets.zip' -o ritex-temp-image-assets.zip
+      - name: Upload temporary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ritex-temp-image-assets
+          path: ritex-temp-image-assets.zip
+          retention-days: 1
+          compression-level: 0
