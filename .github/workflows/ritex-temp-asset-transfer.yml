@@ -1,8 +1,7 @@
 name: Ritex temporary asset transfer
 on:
   push:
-    paths:
-      - ".github/workflows/ritex-temp-asset-transfer.yml"
+  workflow_dispatch:
 
 jobs:
   transfer:
